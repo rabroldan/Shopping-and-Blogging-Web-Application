@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <a href="/items/add" class="btn btn-success pull-right">Add Post</a>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item ID</th>
+            <th>Title</th>
+            <th>Post Date</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Published</th>
+            <th></th> 
+          </tr>
+        </thead>
+        <tbody>
+          {{#each items}}
+          <tr>
+            <td><a href="/shop/{{id}}">{{id}}</a></td>
+            <td>{{title}}</td>
+            <td>{{#formatDate postDate}}{{/formatDate}}</td>
+            <td>{{price}}</td>
+            <td>
+              <a href="/categories/{{category}}">{{category}}</a>
+            </td>
+            <td>{{published}}</td>
+            <td>
+              <!-- "remove" link styled as a button -->
+              <a href="/items/delete/{{id}}" class="btn btn-danger">remove</a>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-12 text-center">
+      <strong>{{#unless items.length}} {{message}} {{/unless}}</strong>
+    </div>
+  </div>
+</div>

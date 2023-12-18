@@ -1,0 +1,72 @@
+<div class="container" style="padding-top: 90px;"></div>
+<form method="post" action="/items/add" enctype="multipart/form-data">
+  <fieldset>
+    <h2>Feature Image</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input class="form-control" id="featureImage" name="featureImage" type="file" />
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <br />
+  <fieldset>
+    <h2>Add Item</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="title">Item Name:</label>
+          <input class="form-control" id="title" name="title" type="text" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input class="form-control" id="price" name="price" type="text" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="body">Description:</label>
+          <textarea class="form-control" id="body" name="body" rows="15"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="category">Category:</label>
+                            {{#if categories}}
+                            <select class="form-control" name="category" id="category">
+                                <option value="">Select Category</option>
+                                {{#each categories}}
+                                <option value="{{id}}">{{category}}</option>
+                                {{/each}}
+                            </select>
+                            {{else}}
+                            <div>No Categories</div>
+                            {{/if}}
+                        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="category">Visibility:</label>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="published" id="published" />
+              Published
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <hr />
+  <input type="submit" class="btn btn-primary pull-right" value="Add Post" /><br /><br /><br />
+</form>
+</div>
